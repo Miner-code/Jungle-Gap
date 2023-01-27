@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "npm: start",
+        "type": "npm",
+        "script": "start",
+        "isBackground": true,
+        "problemMatcher": {
+          "owner": "typescript",
+          "pattern": "$tsc",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": {
+              "regexp": "Starting compilation in watch mode..."
+            },
+            "endsPattern": {
+              "regexp": "Compilation complete."
+            }
+          }
+        }
+      },
+      {
+        "label": "npm: test",
+        "type": "npm",
+        "script": "test",
+        "isBackground": true,
+        "problemMatcher": {
+          "owner": "jest",
+          "pattern": {
+            "regexp": "Test Suites: (.*) failed, (.*) passed, (.*) total",
+            "message": "Test Suites: $1 failed, $2 passed, $3 total"
+          },
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": {
+              "regexp": "Jest is running"
+            },
+            "endsPattern": {
+              "regexp": "Test Suites:.*"
+            }
+          }
+        }
+      }
+    ]
+  }
+  
